@@ -12,6 +12,7 @@ import ReservationBtn from "./components/ReservationBtn";
 
 function App() {
   const [sideBar, setSideBar] = useState(false);
+  const [sideMenu, setSideMenu] = useState(false);
   const [videoInfo, setVideoInfo] = useState({
     type: "video",
     title: "المقدمة التعريفية لـ هند الناهض",
@@ -20,6 +21,7 @@ function App() {
   });
 
   const onToggleSideBar = () => setSideBar(!sideBar);
+  const onToggleSideMenu = () => setSideMenu(!sideMenu);
 
   const onVideoChange = ({ data }) =>
     setVideoInfo({
@@ -32,7 +34,14 @@ function App() {
 
   return (
     <AppContext.Provider
-      value={{ videoInfo, onVideoChange, sideBar, onToggleSideBar }}
+      value={{
+        videoInfo,
+        onVideoChange,
+        sideBar,
+        onToggleSideBar,
+        sideMenu,
+        onToggleSideMenu,
+      }}
     >
       <Router>
         <div className="flex justify-between items-start flex-row-reverse md:flex-row">
